@@ -36,38 +36,45 @@ public class Functions {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-      System.out.println("Basic math algorithim");
       Scanner s = new Scanner(System.in);
-      int a, b;
-      String c;
+      System.out.println("Basic math algorithim");
+      int a, b, c;
       boolean condition = true;
       while(condition) {
      System.out.println("What algorithim do you wan to do ?"
                     + "" + "\n"  +"1. Sum" 
                     + "\n"  +"2. Divide"+ 
                     "\n"  +"3. Multiply"
-                    + "\n" + "4. Subtract");
+                    + "\n" + "4. Subtract"
+                        + "\n" + "5. Exit");
       
-       c = s.next();
+       c = s.nextInt(); 
+       
+     if(c == 5){
+        break;
+        }
+     
       System.out.println("Enter first number");
       a = s.nextInt();
+      
       System.out.println("Enter second number");
       b = s.nextInt();
-      if(c.equals("1")) {
-      System.out.println("Sum = " + addNumbers(a, b));
-      }
-      else if(c.equals("3")) {
-      System.out.println("Division = " + divideNumbers(a, b));
-      }
-       else if(c.equals("3")) {
-      System.out.println("Multiply = " + multiplyNumbers(a, b));
-      }
-          else if(c.equals("5")) {
-      condition = false;
-      }
-     else {
-       System.out.println("Subtration = " + subtractNumbers(a, b));
-       }
+          switch (c) {
+              case 1:
+                  System.out.println("Sum = " + addNumbers(a, b));
+                  break;
+              case 2:
+                  System.out.println("Division = " + divideNumbers(a, b));
+                  break;
+              case 3:
+                  System.out.println("Multiply = " + multiplyNumbers(a, b));
+                  break;
+              case 4:
+                  System.out.println("Subtration = " + subtractNumbers(a, b));
+                  break;            
+              default:
+                  System.out.println("Invalid Entry");
+                  break;
+          }
       }        
     }}
