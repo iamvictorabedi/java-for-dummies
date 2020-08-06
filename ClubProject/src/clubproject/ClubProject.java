@@ -16,8 +16,8 @@ public class ClubProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Registration classProject = new Registration();
-        classProject.setVisible(true);
+        Landing landing = new Landing();
+        landing.setVisible(true);
 
     }
     
