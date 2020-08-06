@@ -16,7 +16,7 @@ public class ClubProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Landing landing = new Landing();
+        Land landing = new Land();
         landing.setVisible(true);
 
     }
