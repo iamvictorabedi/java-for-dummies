@@ -244,6 +244,7 @@ public class Registration extends JFrame {
             intrests.setText(resultSet.getString(4));
            }else {
                JOptionPane.showMessageDialog(null, "End of file");
+               clearForm();
            }
        }catch (SQLException ex) {
           System.out.println("Error" + ex);
@@ -259,6 +260,7 @@ public class Registration extends JFrame {
             intrests.setText(resultSet.getString(4));
            }else {
                JOptionPane.showMessageDialog(null, "End of file");
+               clearForm();
            }
        }catch (Exception ex) {
           System.out.println("Error" + ex);
@@ -278,6 +280,9 @@ public class Registration extends JFrame {
             p.execute();
             statement.close();
             connection.close();
+       JOptionPane.showMessageDialog(null, "User Was Registered Sucessfully");
+       clearForm();
+
         }catch (Exception ex) {
           System.out.println("Error" + ex);
       }
@@ -340,16 +345,23 @@ public class Registration extends JFrame {
 
     private void intConnection() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String db = "jdbc:mysql://locahost:3306/apt3040";
+            Class.forName("com.mysql.jdbc.Driver");
+            String db = "jdbc:mysql://localhost:3306/apt3040";
             connection = DriverManager.getConnection(db, "root", "pass@1234");
             statement = connection.createStatement();
-            String query= "Select * from students";
+            String query= "Select * from student";
             statement.executeQuery(query);
             resultSet = statement.getResultSet();
         } catch (Exception ex) {
             System.out.println("Error" + ex);
         }
   
+    }
+
+    private void clearForm() {
+            student_id.setText(null);
+            student_name.setText(null);
+            dob.setText(null);
+            intrests.setText(null); //To change body of generated methods, choose Tools | Templates.
     }
 }
